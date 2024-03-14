@@ -48,4 +48,28 @@ export class ProvaComponent implements OnInit, AfterViewInit, DoCheck, AfterCont
   }
 
   //* with the lifecycle hooks, we can perform some actions during the loading of the components
+
+  cats = [
+    {
+      name: 'pawpaw',
+      breed: 'sorian',
+      desc: `Il gatto soriano è il Gatto per antonomasia, quello che tutti immaginiamo quando
+        pensiamo a un micio. Si tratta dei comunissimi meticci, cioè esemplari senza alcun pedigree
+        e impossibili da classificare in una specifica razza`
+    },
+    {
+      name: 'tiger',
+      breed: 'abyssinian',
+      desc: `Abyssinian, breed of domestic cat, probably of Egyptian origin, that has been considered
+        to approximate the sacred cat of ancient Egypt more closely than any other living cat. The
+        Abyssinian is a lithe cat with relatively slender legs and a long, tapering tail.`
+    },
+    {
+      name: 'lex',
+      breed: 'european shorthair',
+      desc: `European Shorthair Cat personality. One of the European Shorthair's most favorable
+        qualities is her ability to adapt quickly to new environments, making her an ideal pet for
+        households with small children and seniors, as well as with other cats, dogs and various pets.`
+    },
+  ]
 }
