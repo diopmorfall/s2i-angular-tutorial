@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 
 import { ProvaComponent } from './prova/prova.component';
 //* in v17 you need to import the components you need
-//* unlike the versions that have the app.module.ts
+//* unlike the older versions where you add them in app.module.ts
 
 @Component({
   selector: 'app-root',
