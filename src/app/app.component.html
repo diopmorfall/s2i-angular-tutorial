@@ -1,4 +1,8 @@
 <h2>Angular notes</h2>
 <p>I can include the component as many times as I want</p>
 <app-prova></app-prova>
+<br>
+<button mat-raised-button color="primary" [disabled]="isDisabled">Primary</button>
+<br><br>
+<img [src]="isDisabled ? url1 : url2" style="width: 150px; height: 250px;"/>
 <router-outlet />
