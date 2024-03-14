@@ -5,4 +5,15 @@
 <button mat-raised-button color="primary" [disabled]="isDisabled">Primary</button>
 <br><br>
 <img [src]="isDisabled ? url1 : url2" style="width: 150px; height: 250px;"/>
+<br><br><br>
+<button mat-raised-button color="primary" (click)="onClick(this)">Primary</button>
+<br><br>
+
+
+<mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input matInput placeholder="Ex. Pizza" value="Sushi" (input)="onInput($event)">
+</mat-form-field>
+  
+  
 <router-outlet />
