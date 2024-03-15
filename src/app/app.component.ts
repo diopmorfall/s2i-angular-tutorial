@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
@@ -8,11 +9,12 @@ import { ProvaComponent } from './prova/prova.component';
 //* in v17 you need to import the components you need
 //* unlike the older versions where you add them in app.module.ts
 //? FormsModule is needed to use ngModel with input elements and two way binding
+//? CommonModule is needed to use structural directives
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, ProvaComponent, MatButtonModule, MatInputModule],
+  imports: [RouterOutlet, FormsModule, ProvaComponent, MatButtonModule, MatInputModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -43,4 +45,6 @@ export class AppComponent implements OnInit{
   onClickBinding(e: Event){
     this.title = 'clicked here'
   }
+
+  isVisible = true
 }

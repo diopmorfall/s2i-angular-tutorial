@@ -20,4 +20,19 @@
 <h2>Two way binding</h2>
 <button mat-raised-button color="primary" (click)="onClickBinding($event)">Primary</button>
 <p>With ngModel we're making both property and event binding: this way, we can cover any change</p>
+<br><br>
+<h2>Directives</h2>
+<p>They're classes that change the behavior of our HTML elements, whether by attributes or structurarly</p>
+<br>
+<h3>ngIf</h3>
+<p>*ngIf allows us to handle conditional rendering, thanks to the conditions we can specify</p>
+<p *ngIf="isVisible; then ifBlock else elseBlock"></p>
+<ng-template #ifBlock>
+    <p>ifBlock visible</p>
+</ng-template>
+<ng-template #elseBlock>
+    <p>with the template reference, we can set an 'else' block that'll be rendered if the condition isn't true</p>
+    <p>also, the template reference can be used only on an ng-template element</p>
+</ng-template>
+
 <router-outlet />
