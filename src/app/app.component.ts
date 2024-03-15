@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { ProvaComponent } from './prova/prova.component';
 //* in v17 you need to import the components you need
 //* unlike the older versions where you add them in app.module.ts
+//? FormsModule is needed to use ngModel with input elements and two way binding
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ProvaComponent, MatButtonModule, MatInputModule],
+  imports: [RouterOutlet, FormsModule, ProvaComponent, MatButtonModule, MatInputModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -33,6 +35,12 @@ export class AppComponent implements OnInit{
   }
 
   onInput(e: Event){ //* here we're getting the details of the event, including the data we need
-    console.log('Input', (<HTMLInputElement>e.target).value)
+    //console.log('Input', (<HTMLInputElement>e.target).value)
+    this.title = (<HTMLInputElement>e.target).value
+    //* with this, we can change a value and see it updated right away
+  }
+
+  onClickBinding(e: Event){
+    this.title = 'clicked here'
   }
 }

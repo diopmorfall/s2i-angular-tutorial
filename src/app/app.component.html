@@ -2,6 +2,7 @@
 <p>I can include the component as many times as I want</p>
 <app-prova></app-prova>
 <br>
+<h2>Property binding</h2>
 <button mat-raised-button color="primary" [disabled]="isDisabled">Primary</button>
 <br><br>
 <img [src]="isDisabled ? url1 : url2" style="width: 150px; height: 250px;"/>
@@ -9,11 +10,14 @@
 <button mat-raised-button color="primary" (click)="onClick(this)">Primary</button>
 <br><br>
 
-
+<h2>Event binding</h2>
 <mat-form-field class="example-full-width">
     <mat-label>Favorite food</mat-label>
-    <input matInput placeholder="Ex. Pizza" value="Sushi" (input)="onInput($event)">
+    <input matInput placeholder="Ex. Pizza" value="Sushi" [(ngModel)]="title">
 </mat-form-field>
-  
-  
+<p>{{ title }}</p>
+<br>
+<h2>Two way binding</h2>
+<button mat-raised-button color="primary" (click)="onClickBinding($event)">Primary</button>
+<p>With ngModel we're making both property and event binding: this way, we can cover any change</p>
 <router-outlet />
