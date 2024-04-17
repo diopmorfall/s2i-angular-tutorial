@@ -53,4 +53,6 @@ export class AppComponent implements OnInit{
     { name: 'Ryusei', surname: 'Shidou', isPlaying: true },
     { name: 'Meguru', surname: 'Bachira', isPlaying: false },
   ]
+  value = 1;
+  songTitle = 'Madada'
 }

@@ -44,4 +44,12 @@
     <span *ngIf="!player.isPlaying">Currently not playing</span>
 </p>
 
+<h3>ngSwitch</h3>
+<div [ngSwitch]="songTitle"><!--* it's not ngSwitch that modifies the element, but each ngSwitchCase -->
+    <p *ngSwitchCase="'Sukuna'">Gambare gambare</p>
+    <p *ngSwitchCase="'Gear 5'">My heartbeat</p>
+    <p *ngSwitchCase="'JJK'">I feel invincible</p>
+    <p *ngSwitchDefault>Plot armor</p>
+</div>
+<!--? for string values, we need both double and single quotes -->
 <router-outlet />
