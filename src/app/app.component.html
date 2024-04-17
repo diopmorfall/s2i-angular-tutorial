@@ -60,5 +60,12 @@
         <p>{{ player.name }} {{ player.surname }}</p>
     </li>
 </ul>
-
+<br><br>
+<h3>ngClass</h3>
+<ul>
+    <li class="ng-style" *ngFor="let player of players; index as i">
+        <div class="circle" [ngClass]="player.isPlaying ? 'isPlaying prova' : 'isNotPlaying'">{{ i }}</div><!-- with this I can add multiple classes-->
+        <p>{{ player.name }} {{ player.surname }}</p>
+    </li>
+</ul>
 <router-outlet />

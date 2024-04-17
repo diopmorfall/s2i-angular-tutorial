@@ -1,9 +1,10 @@
 .circle{
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: blue;
     margin-right: 10px;
+    text-align: center;
 }
 
 .ng-style{
@@ -14,4 +15,18 @@
 
 .ng-style p{
     margin-bottom: 0;
+}
+
+.isPlaying{
+    background-color: green;
+    color: white;
+}
+
+.isNotPlaying{
+    background-color: red;
+    color: black;
+}
+
+.cube{
+    border-radius: 0;
 }
