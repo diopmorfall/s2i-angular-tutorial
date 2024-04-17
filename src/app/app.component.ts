@@ -47,4 +47,10 @@ export class AppComponent implements OnInit{
   }
 
   isVisible = true
+  players = [
+    { name: 'Yoichi', surname: 'Isagi', isPlaying: true },
+    { name: 'Rin', surname: 'Itoshi', isPlaying: true },
+    { name: 'Ryusei', surname: 'Shidou', isPlaying: true },
+    { name: 'Meguru', surname: 'Bachira', isPlaying: false },
+  ]
 }

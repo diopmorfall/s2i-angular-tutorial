@@ -34,5 +34,14 @@
     <p>with the template reference, we can set an 'else' block that'll be rendered if the condition isn't true</p>
     <p>also, the template reference can be used only on an ng-template element</p>
 </ng-template>
+<br><br>
+<h3>ngFor</h3>
+<p>With this we can render multiple elements</p>
+
+<p *ngFor="let player of players, index as i, first as isFirst">
+    {{ i }} - {{ isFirst }} <strong>{{ player.surname }}</strong> {{ player.name }}
+    <span *ngIf="player.isPlaying">Currently playing</span>
+    <span *ngIf="!player.isPlaying">Currently not playing</span>
+</p>
 
 <router-outlet />
