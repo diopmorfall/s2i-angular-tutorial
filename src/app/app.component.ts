@@ -50,8 +50,9 @@ export class AppComponent implements OnInit{
   players = [
     { name: 'Yoichi', surname: 'Isagi', isPlaying: true },
     { name: 'Rin', surname: 'Itoshi', isPlaying: true },
+    { name: 'Shoei', surname: 'Barou', isPlaying: false },
     { name: 'Ryusei', surname: 'Shidou', isPlaying: true },
-    { name: 'Meguru', surname: 'Bachira', isPlaying: false },
+    { name: 'Oliver', surname: 'Aiku', isPlaying: false },
   ]
   value = 1;
   songTitle = 'Madada'

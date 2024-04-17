@@ -1,0 +1,17 @@
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: blue;
+    margin-right: 10px;
+}
+
+.ng-style{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.ng-style p{
+    margin-bottom: 0;
+}

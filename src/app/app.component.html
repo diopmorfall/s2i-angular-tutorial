@@ -43,7 +43,7 @@
     <span *ngIf="player.isPlaying">Currently playing</span>
     <span *ngIf="!player.isPlaying">Currently not playing</span>
 </p>
-
+<br><br>
 <h3>ngSwitch</h3>
 <div [ngSwitch]="songTitle"><!--* it's not ngSwitch that modifies the element, but each ngSwitchCase -->
     <p *ngSwitchCase="'Sukuna'">Gambare gambare</p>
@@ -52,4 +52,13 @@
     <p *ngSwitchDefault>Plot armor</p>
 </div>
 <!--? for string values, we need both double and single quotes -->
+<br><br>
+<h3>ngStyle</h3>
+<ul>
+    <li class="ng-style" *ngFor="let player of players">
+        <div class="circle" [ngStyle]="{backgroundColor: player.isPlaying ? 'green' : 'red'}"></div>
+        <p>{{ player.name }} {{ player.surname }}</p>
+    </li>
+</ul>
+
 <router-outlet />
