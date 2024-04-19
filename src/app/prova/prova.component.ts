@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCardModule} from '@angular/material/card';
@@ -81,4 +81,11 @@ export class ProvaComponent
   ]
 
   @Input() data: any = [] //* input decorator to receive data from a parent component
+  @Output() sendDataEvent = new EventEmitter<string>()
+  //* output decorator that allows us to send data to the parent component
+  name = 'Charles Chevalier'
+
+  sendData(){
+    this.sendDataEvent.emit(this.name)
+  }
 }

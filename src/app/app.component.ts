@@ -66,4 +66,9 @@ export class AppComponent implements OnInit{
       { name: 'Lorenzo', surname: 'Don', isPlaying: false, color: 'grey' },
     ]
   }
+
+  receivedName = ''
+  receiveData(value: any){
+    this.receivedName = value
+  }
 }

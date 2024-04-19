@@ -33,3 +33,4 @@
 <div *ngFor="let player of data">
   <p [ngStyle]="{ color: player.color }">{{ player.name }} {{ player.surname }}</p>
 </div>
+<button (click)="sendData()">Send data</button>

@@ -68,7 +68,9 @@
     </li>
 </ul>
 <br><br>
-<h2>Parent to child</h2>
-<app-prova [data]="players"></app-prova>
+<h2>Parent to child & child to parent</h2>
+<app-prova [data]="players" (sendDataEvent)="receiveData($event)"></app-prova>
 <button (click)="changePlayers()">Change players</button>
+<p [ngStyle]="{fontStyle: 'italic', fontWeight: '600'}" *ngIf="receivedName">{{ receivedName }}</p>
+<br><br>
 <router-outlet />
