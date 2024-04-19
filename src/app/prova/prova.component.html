@@ -4,7 +4,9 @@
     </mat-slider>
 -->
 
-<mat-card class="example-card">
+<!--
+
+  <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>{{ cats[1].name.toUpperCase() }}</mat-card-title>
       <mat-card-subtitle>{{ cats[1].breed }}</mat-card-subtitle>
@@ -16,8 +18,9 @@
       <button mat-button>LIKE</button>
       <button mat-button>SHARE</button>
     </mat-card-actions>
-</mat-card>
-
+  </mat-card>
+-->
+  
 <!--
     <div class="demo-section">
         <button mat-raised-button color="primary"
@@ -26,3 +29,7 @@
         </button>
     </div>
 -->
+
+<div *ngFor="let player of data">
+  <p [ngStyle]="{ color: player.color }">{{ player.name }} {{ player.surname }}</p>
+</div>

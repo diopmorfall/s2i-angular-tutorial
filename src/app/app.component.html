@@ -1,6 +1,5 @@
 <h2>Angular notes</h2>
 <p>I can include the component as many times as I want</p>
-<app-prova></app-prova>
 <br>
 <h2>Property binding</h2>
 <button mat-raised-button color="primary" [disabled]="isDisabled">Primary</button>
@@ -68,4 +67,8 @@
         <p>{{ player.name }} {{ player.surname }}</p>
     </li>
 </ul>
+<br><br>
+<h2>Parent to child</h2>
+<app-prova [data]="players"></app-prova>
+<button (click)="changePlayers()">Change players</button>
 <router-outlet />

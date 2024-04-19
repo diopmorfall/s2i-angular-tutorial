@@ -1,20 +1,23 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatBadgeModule} from '@angular/material/badge';
+import { CommonModule } from '@angular/common';
 //* we can import tons of components from angular material
 //? (in older versions, it's common to create a module where we import all of the components)
 
 @Component({
   selector: 'app-prova',
   standalone: true,
-  imports: [MatSliderModule, MatCardModule, MatButtonModule, MatBadgeModule],
+  imports: [MatSliderModule, MatCardModule, MatButtonModule, MatBadgeModule, CommonModule],
   templateUrl: './prova.component.html',
   styleUrl: './prova.component.css'
 })
-export class ProvaComponent implements OnInit, AfterViewInit, DoCheck, AfterContentInit, AfterContentInit, AfterContentChecked, AfterViewChecked, OnDestroy {
+export class ProvaComponent
+  implements OnInit, AfterViewInit, DoCheck, AfterContentInit, AfterContentInit,
+  AfterContentChecked, AfterViewChecked, OnDestroy, OnChanges {
   constructor(){
     console.log('constructor building the single component')
   }
@@ -47,6 +50,10 @@ export class ProvaComponent implements OnInit, AfterViewInit, DoCheck, AfterCont
     console.log('ngOnInit, runs when the component is initialized')
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("ngOnChanges runs whenever there are changes in the component", changes)
+  }
+
   //* with the lifecycle hooks, we can perform some actions during the loading of the components
 
   cats = [
@@ -72,4 +79,6 @@ export class ProvaComponent implements OnInit, AfterViewInit, DoCheck, AfterCont
         households with small children and seniors, as well as with other cats, dogs and various pets.`
     },
   ]
+
+  @Input() data: any = [] //* input decorator to receive data from a parent component
 }

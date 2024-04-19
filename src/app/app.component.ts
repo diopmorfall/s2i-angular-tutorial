@@ -48,12 +48,22 @@ export class AppComponent implements OnInit{
 
   isVisible = true
   players = [
-    { name: 'Yoichi', surname: 'Isagi', isPlaying: true },
-    { name: 'Rin', surname: 'Itoshi', isPlaying: true },
-    { name: 'Shoei', surname: 'Barou', isPlaying: false },
-    { name: 'Ryusei', surname: 'Shidou', isPlaying: true },
-    { name: 'Oliver', surname: 'Aiku', isPlaying: false },
+    { name: 'Yoichi', surname: 'Isagi', isPlaying: true, color: 'lime' },
+    { name: 'Rin', surname: 'Itoshi', isPlaying: true, color: 'aquamarine' },
+    { name: 'Shoei', surname: 'Barou', isPlaying: false, color: 'red' },
+    { name: 'Ryusei', surname: 'Shidou', isPlaying: true, color: 'purple' },
+    { name: 'Oliver', surname: 'Aiku', isPlaying: false, color: 'green' },
   ]
   value = 1;
   songTitle = 'Madada'
+
+  changePlayers(){
+    this.players = [
+      { name: 'Tabito', surname: 'Karasu', isPlaying: true, color: 'purple' },
+      { name: 'Hyoma', surname: 'Chigiri', isPlaying: true, color: 'magenta' },
+      { name: 'Niko', surname: 'Ikki', isPlaying: false, color: 'aqua' },
+      { name: 'Reji', surname: 'Hiiragi', isPlaying: false, color: 'pink' },
+      { name: 'Lorenzo', surname: 'Don', isPlaying: false, color: 'grey' },
+    ]
+  }
 }
