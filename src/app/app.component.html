@@ -76,4 +76,15 @@
 <h2>Template variables</h2>
 <input #animeName type="text" value="Wind Breaker">
 <button (click)="showName()">Show name</button>
+<br><br>
+<h2>Custom directives</h2>
+<p>Choose highlight color</p>
+<div>
+    <input type="radio" name="highlightColor" (click)="changeHighlightColor('red')">Red
+    <input type="radio" name="highlightColor" (click)="changeHighlightColor('#CFC2E9')">Pink
+    <input type="radio" name="highlightColor" (click)="changeHighlightColor('blue')">Light blue
+</div>
+<p [appHighlight]="color" defaultColor="lime">Highlights of the match</p>
+<p [appHighlight]="color" defaultColor="cyan">Glass ego is cooking</p>
+<p [appHighlight]="color" defaultColor="grey">The king is back</p>
 <router-outlet />

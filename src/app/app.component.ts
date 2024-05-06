@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { ProvaComponent } from './prova/prova.component';
+import { HighlightDirective } from './directives/highlight.directive';
 //* in v17 you need to import the components you need
 //* unlike the older versions where you add them in app.module.ts
 //? FormsModule is needed to use ngModel with input elements and two way binding
@@ -14,7 +15,15 @@ import { ProvaComponent } from './prova/prova.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, ProvaComponent, MatButtonModule, MatInputModule, CommonModule],
+  imports: [
+    RouterOutlet,
+    FormsModule,
+    ProvaComponent,
+    MatButtonModule,
+    MatInputModule,
+    CommonModule,
+    HighlightDirective
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -85,6 +94,11 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   showName(){
-    console.log("Show: ", this.value)
+    console.log("Show: ", this.inputValue.nativeElement.value)
+  }
+
+  color = '';
+  changeHighlightColor(color: string){
+    this.color = color;
   }
 }
