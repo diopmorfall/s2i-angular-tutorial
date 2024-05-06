@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ import { ProvaComponent } from './prova/prova.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, AfterViewInit{
   isDisabled = false;
 
   ngOnInit(): void {
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
       this.isDisabled = !this.isDisabled;
     }, 2000)
 
-
+    console.log("Anime name: ", this.inputValue)
   }
   title = 's2i-angular-tutorial';
   url1 = 'https://tse1.mm.bing.net/th?id=OIP.t5B55ZEKRYJ9nzL77VDgIwHaKT&pid=Api'
@@ -70,5 +70,21 @@ export class AppComponent implements OnInit{
   receivedName = ''
   receiveData(value: any){
     this.receivedName = value
+  }
+
+  @ViewChild('animeName') inputValue!: ElementRef<HTMLInputElement>
+  //* this tells us that there's this element inside the component view that we can access to
+  //* since it's an ElementRef, it may be null or undefined; with ! we assure that it'll always have a value
+  //* otherwise, we must give it a value
+  //* using the any type we won't have the nativeElement object, that represents the element we're taking
+  //* we can also be even more specific by adding the type of the element we're handling
+
+  //! also, the value will only be accessible once the view is initialized
+  ngAfterViewInit(): void {
+    console.log("Anime name: ", this.inputValue)
+  }
+
+  showName(){
+    console.log("Show: ", this.value)
   }
 }

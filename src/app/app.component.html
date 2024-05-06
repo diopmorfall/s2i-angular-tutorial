@@ -73,4 +73,7 @@
 <button (click)="changePlayers()">Change players</button>
 <p [ngStyle]="{fontStyle: 'italic', fontWeight: '600'}" *ngIf="receivedName">{{ receivedName }}</p>
 <br><br>
+<h2>Template variables</h2>
+<input #animeName type="text" value="Wind Breaker">
+<button (click)="showName()">Show name</button>
 <router-outlet />
