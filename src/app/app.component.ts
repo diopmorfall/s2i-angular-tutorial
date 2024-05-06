@@ -7,6 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { ProvaComponent } from './prova/prova.component';
 import { HighlightDirective } from './directives/highlight.directive';
+import { ServizioProvaService } from './services/servizio-prova.service';
 //* in v17 you need to import the components you need
 //* unlike the older versions where you add them in app.module.ts
 //? FormsModule is needed to use ngModel with input elements and two way binding
@@ -28,6 +29,8 @@ import { HighlightDirective } from './directives/highlight.directive';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, AfterViewInit{
+  constructor(private servizioProvaService: ServizioProvaService){ }
+  //* this is where we inject the services
   isDisabled = false;
 
   ngOnInit(): void {
@@ -36,6 +39,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     }, 2000)
 
     console.log("Anime name: ", this.inputValue)
+    console.log("Players service", this.servizioProvaService.getPlayers())
   }
   title = 'Angular tutorial by start2impact University';
   url1 = 'https://tse1.mm.bing.net/th?id=OIP.t5B55ZEKRYJ9nzL77VDgIwHaKT&pid=Api'
@@ -56,13 +60,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   }
 
   isVisible = true
-  players = [
-    { name: 'Yoichi', surname: 'Isagi', isPlaying: true, color: 'lime' },
-    { name: 'Rin', surname: 'Itoshi', isPlaying: true, color: 'aquamarine' },
-    { name: 'Shoei', surname: 'Barou', isPlaying: false, color: 'red' },
-    { name: 'Ryusei', surname: 'Shidou', isPlaying: true, color: 'purple' },
-    { name: 'Oliver', surname: 'Aiku', isPlaying: false, color: 'green' },
-  ]
+  players = this.servizioProvaService.getPlayers()
   value = 1;
   songTitle = 'Madada'
 
