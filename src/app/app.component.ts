@@ -37,7 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit{
 
     console.log("Anime name: ", this.inputValue)
   }
-  title = 's2i-angular-tutorial';
+  title = 'Angular tutorial by start2impact University';
   url1 = 'https://tse1.mm.bing.net/th?id=OIP.t5B55ZEKRYJ9nzL77VDgIwHaKT&pid=Api'
   url2 = 'https://tse2.mm.bing.net/th?id=OIP.UQ8B1FpdkDbR42AVhdAZXgHaLE&pid=Api'
 
@@ -101,4 +101,7 @@ export class AppComponent implements OnInit, AfterViewInit{
   changeHighlightColor(color: string){
     this.color = color;
   }
+
+  today = Date.now()
+  number = 7.5
 }

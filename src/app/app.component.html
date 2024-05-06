@@ -87,4 +87,16 @@
 <p [appHighlight]="color" defaultColor="lime">Highlights of the match</p>
 <p [appHighlight]="color" defaultColor="cyan">Glass ego is cooking</p>
 <p [appHighlight]="color" defaultColor="grey">The king is back</p>
+<br><br>
+<h2>Pipes</h2>
+<p>Benvenuti a {{ title | uppercase }}</p>
+<p>{{ today | date }}</p>
+<p>{{ today | date:'medium' }}</p>
+<p>{{ today | date:'shortTime' }}</p>
+<p>{{ today | date:'short' }}</p>
+<p>{{ today | date:'h:mm:ss' }}</p>
+<p>{{ today | date:'d MMM yyyy - h:mm:ss' }}</p>
+<p>{{ number | number:'2.2-4' }}</p>
+<p>{{ number | percent:'2.1-2'}}</p>
+<p>{{ number | currency: 'EUR'}}</p>
 <router-outlet />
