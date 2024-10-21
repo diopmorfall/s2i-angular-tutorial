@@ -100,6 +100,14 @@
 <p>{{ number | percent:'2.1-2'}}</p>
 <p>{{ number | currency: 'EUR'}}</p>
 <br><br>
-<h2>Services</h2>
+<h2>Routing</h2>
+<p>
+    Routing allows us to change the components that we show, making it look like we're changing page.
+    Everything that is handled by the router will be shown into the <code>router outlet</code> tag
+</p>
 
-<router-outlet />
+<a routerLink="/">Home</a>&nbsp;&nbsp;
+<a routerLink="/about">About Blue Lock</a>&nbsp;&nbsp;
+<a routerLink="/contacts">Contacts</a>
+
+<router-outlet></router-outlet>
