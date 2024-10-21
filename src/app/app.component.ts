@@ -46,8 +46,8 @@ export class AppComponent implements OnInit, AfterViewInit{
         this.isDisabled = !this.isDisabled;
         }, 2000)
 
-        console.log("Anime name: ", this.inputValue)
-        console.log("Players service", this.servizioProvaService.getPlayers())
+        //console.log("Anime name: ", this.inputValue)
+        //console.log("Players service", this.servizioProvaService.getPlayers())
     }
     title = 'Angular tutorial by start2impact University';
     url1 = 'https://tse1.mm.bing.net/th?id=OIP.t5B55ZEKRYJ9nzL77VDgIwHaKT&pid=Api'

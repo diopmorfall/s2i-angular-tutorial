@@ -7,4 +7,6 @@ export const routes: Routes = [
     { path: '', component: HomePageComponent },
     { path: 'about', component: AboutPageComponent },
     { path: 'contacts', component: ContactPageComponent },
+    { path: 'contacts/:id', component: ContactPageComponent },
+    //* this is a route with params, we can use it to load a component for a specific set of data
 ];

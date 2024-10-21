@@ -1,1 +1,11 @@
-<p>contact-page works!</p>
+<div *ngIf="!isProfile; else playerProfile">
+    <h2>Players</h2>
+    <div *ngFor="let player of players; index as i">
+        <a routerLink="/contacts/{{i}}">
+            <p>{{ player.name }} {{ player.surname }}</p>
+        </a>
+    </div>
+</div>
+<ng-template #playerProfile>
+    <h2>{{ player.name }}'s profile</h2>
+</ng-template>
