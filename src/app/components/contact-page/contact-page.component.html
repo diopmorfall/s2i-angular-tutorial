@@ -1,11 +1,20 @@
-<div *ngIf="!isProfile; else playerProfile">
+<div>
     <h2>Players</h2>
-    <div *ngFor="let player of players; index as i">
-        <a routerLink="/contacts/{{i}}">
-            <p>{{ player.name }} {{ player.surname }}</p>
-        </a>
+    <div class="contacts">
+        <div *ngFor="let player of players; index as i">
+            <a routerLink="/contacts/{{i}}">
+                <p>{{ player.name }} {{ player.surname }}</p>
+            </a>
+        </div>
     </div>
 </div>
+    
+<!-- 
+
 <ng-template #playerProfile>
-    <h2>{{ player.name }}'s profile</h2>
+    <app-single-contact [player]="player"></app-single-contact>
 </ng-template>
+-->
+
+<!--* to render child components through routing, we need to use this in the parent element -->
+<router-outlet></router-outlet>
