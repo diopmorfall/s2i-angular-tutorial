@@ -4,6 +4,7 @@ import { AboutPageComponent } from './components/about-page/about-page.component
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { SingleContactComponent } from './components/single-contact/single-contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { canActivateChild, canActivateGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' }, //? same type of redirect, but to a different path
@@ -11,9 +12,11 @@ export const routes: Routes = [
     { path: 'home', component: HomePageComponent },
     { path: 'about', component: AboutPageComponent },
     //* this is a route with params, we can use it to load a component for a specific set of data
-    { path: 'contacts', component: ContactPageComponent,
+    { path: 'contacts', canActivate: [canActivateGuard], canActivateChild: [canActivateChild],
+        //* this component will be accessible only if the defined guards both return true
+        component: ContactPageComponent,
         children: [
-            { path: ':id', component: SingleContactComponent }, //* child route, its base is /contacts
+            { path: ':id', component: SingleContactComponent }, //? child route, its base is /contacts
         ] 
     },
     { path: '404', component: NotFoundComponent },
