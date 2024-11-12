@@ -15,7 +15,7 @@ export class SingleContactComponent implements OnInit {
     constructor(private route: ActivatedRoute, private servizioProva: ServizioProvaService){ }
 
     id!: number | any; //! needs to be fixed because id it's just a number, but params may be null
-    player: any
+    player: any;
 
     ngOnInit(): void {
         this.route.paramMap.subscribe((params: ParamMap) => {
