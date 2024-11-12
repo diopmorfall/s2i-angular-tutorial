@@ -5,6 +5,7 @@ import { ContactPageComponent } from './components/contact-page/contact-page.com
 import { SingleContactComponent } from './components/single-contact/single-contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { canActivateChild, canActivateGuard } from './auth/auth.guard';
+import { TemplateDrivenFormComponent } from './components/template-driven-form/template-driven-form.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' }, //? same type of redirect, but to a different path
@@ -19,6 +20,7 @@ export const routes: Routes = [
             { path: ':id', component: SingleContactComponent }, //? child route, its base is /contacts
         ] 
     },
+    { path: 'form', component: TemplateDrivenFormComponent },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '/404' } //* this allows us to redirect every wrong route to a specific path
     //! remember that it has to be the last route you define here

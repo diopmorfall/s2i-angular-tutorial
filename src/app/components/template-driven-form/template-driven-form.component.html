@@ -1,0 +1,23 @@
+<h2>Template driven form</h2>
+
+<form #homeForm="ngForm" (ngSubmit)="onSumbit(homeForm)">
+    <mat-form-field appearance="fill">
+        <mat-label>Input</mat-label>
+        <input matInput type="text" name="name" ngModel required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" ngModel required email>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Colori</mat-label>
+        <mat-select name="colore" ngModel><!--* ngModel enables all of the Angular controls -->
+            <mat-option value="red">Red</mat-option>
+            <mat-option value="blue">Blue</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!homeForm.valid">Submit</button>
+</form>
+
+<!--* every action we take in the form causes changes into the css classes of the form -->
+<!--? this means that the elements and the form itself have a state and a validation that we must adhere to -->
