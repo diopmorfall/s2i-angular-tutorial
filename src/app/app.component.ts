@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { interval, Observable } from 'rxjs';
 
 import { ProvaComponent } from './prova/prova.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
@@ -42,12 +43,21 @@ export class AppComponent implements OnInit, AfterViewInit{
     isDisabled = false;
 
     ngOnInit(): void {
-        setInterval(() => {
-        this.isDisabled = !this.isDisabled;
-        }, 2000)
+        //setInterval(() => {
+            //this.isDisabled = !this.isDisabled;
+        //}, 2000)
 
         //console.log("Anime name: ", this.inputValue)
         //console.log("Players service", this.servizioProvaService.getPlayers())
+
+        interval(1000).subscribe(n => console.log("Observable", n))
+        new Observable(observer => {
+            let count = 0;
+            setInterval(() => {
+                observer.next(count)
+                count++;
+            }, 1000) //* this is the line that asslow us to stay updated on the latest values
+        })
     }
     title = 'Angular tutorial by start2impact University';
     url1 = 'https://tse1.mm.bing.net/th?id=OIP.t5B55ZEKRYJ9nzL77VDgIwHaKT&pid=Api'
@@ -110,4 +120,6 @@ export class AppComponent implements OnInit, AfterViewInit{
 
     today = Date.now()
     number = 7.5
+
+
 }

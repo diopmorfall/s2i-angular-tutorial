@@ -18,7 +18,7 @@ export class SingleContactComponent implements OnInit {
     player: any;
 
     ngOnInit(): void {
-        this.route.paramMap.subscribe((params: ParamMap) => {
+        this.route.paramMap.subscribe((params: ParamMap) => { //* subscribing to all the changes
             this.id = params.get('id')
             this.player = this.servizioProva.getPlayer(+this.id)
         })
