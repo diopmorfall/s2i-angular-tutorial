@@ -1,0 +1,24 @@
+<h2>Reactive form</h2>
+
+<form [formGroup]="homeForm" (ngSubmit)="onSubmit()"><!--? property binding with the form group we defined in the ts -->
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" name="name" formControlName="name">
+    </mat-form-field>
+    <!--? the only thing we add in the html are conditional elements -->
+    <p *ngIf="!homeForm.get('name')?.valid && homeForm.get('name')?.touched">Insert name</p>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" formControlName="email">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Colori</mat-label>
+        <mat-select name="color" formControlName="color">
+            <mat-option value="red">Red</mat-option>
+            <mat-option value="blue">Blue</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!homeForm.valid">Submit</button>
+</form>
+
+<!--? or condition like the one on the disabled button -->
