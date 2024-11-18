@@ -6,24 +6,29 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 
+import { FirebaseService } from '../../services/firebase.service';
+
 @Component({
     selector: 'app-reactive-form',
     standalone: true,
     imports: [
         CommonModule,
-        ReactiveFormsModule, //! must be included
+        ReactiveFormsModule, //! must be included to use reactive forms
         FormsModule,
         MatFormFieldModule,
         MatInputModule,
         MatSelectModule,
         MatButtonModule,
     ],
+    providers: [FirebaseService],
     templateUrl: './reactive-form.component.html',
     styleUrl: './reactive-form.component.css'
 })
 export class ReactiveFormComponent implements OnInit {
 
     homeForm!: FormGroup
+
+    constructor(private firebaseService: FirebaseService) {}
 
     //* a reactive form is one that has a basic html template, but it's handled by the TS
     ngOnInit(): void {
@@ -37,5 +42,8 @@ export class ReactiveFormComponent implements OnInit {
 
     onSubmit(){
         console.log(this.homeForm)
+        this.firebaseService.addPlayer('https://s2i-angular-tutorial-default-rtdb.asia-southeast1.firebasedatabase.app/players.json',
+            { name: this.homeForm.value.name, email: this.homeForm.value.email }
+        ).subscribe(data => console.log("DB", data))
     }
 }
