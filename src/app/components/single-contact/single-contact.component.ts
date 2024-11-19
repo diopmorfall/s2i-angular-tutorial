@@ -24,7 +24,6 @@ export class SingleContactComponent implements OnInit {
             this.id = params.get('id')
             this.player = this.firebaseService.getPlayer(this.id)
             .subscribe(data => this.player = data)
-            
         })
     }
 }

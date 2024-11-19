@@ -53,11 +53,17 @@ export class ReactiveFormComponent implements OnInit {
     }
 
     deletePlayer(){
-        this.firebaseService.deletePlayer('-OC4HaI3LVVNf657mg0A')
+        this.firebaseService.deletePlayer('-OC4HaI3LVVNf657mg0A') //! obviously make this dynamic
         .subscribe(data => {
             console.log(data)
         })
     }
 
-
+    changePlayer(){
+        this.firebaseService.patchPlayer('-OBkw2m8FQQGZdz0wmJW',
+            { email: "sendou.shuto@blue-lock.jp"} //! obviously make this dynamic
+        ).subscribe(data => {
+            console.log("Patch", data)
+        })
+    }
 }
