@@ -6,14 +6,26 @@ import { Injectable } from '@angular/core';
 })
 export class FirebaseService { //* this service will be used for interacting with the backend
     //? if the app gets too big, you can break it down as much as you want
+    url: string = 'https://s2i-angular-tutorial-default-rtdb.asia-southeast1.firebasedatabase.app/players'
 
     constructor(private http: HttpClient) { }
 
-    addPlayer(url: string, body: {}){
-        return this.http.post(url, body)
+    addPlayer(body: {}){
+        return this.http.post(`${this.url}.json`, body)
     }
 
-    getPlayer(url: string){
-        return this.http.get(url)
+    getPlayers(){
+        return this.http.get(`${this.url}.json`)
     }
+
+    getPlayer(id: string){
+        return this.http.get(`${this.url}/${id}.json`)
+    }
+
+    deletePlayer(id: string){
+        console.log("URL", `${this.url}/${id}.json`)
+        return this.http.delete(`${this.url}/${id}.json`)
+    }
+
+
 }

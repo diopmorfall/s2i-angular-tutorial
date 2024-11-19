@@ -2,7 +2,7 @@
     <h2>Players</h2>
     <div class="contacts">
         <div *ngFor="let player of players; index as i">
-            <a routerLink="/contacts/{{i}}">
+            <a routerLink="/contacts/{{player.id}}">
                 <p>{{ player.name }} {{ player.surname || player.email }}</p>
             </a>
         </div>

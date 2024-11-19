@@ -18,7 +18,15 @@
             <mat-option value="blue">Blue</mat-option>
         </mat-select>
     </mat-form-field>
-    <button mat-raised-button type="submit" [disabled]="!homeForm.valid">Submit</button>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput type="text" name="description" formControlName="description">
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!homeForm.valid">Submit</button>
 </form>
+
+
+<button mat-raised-button (click)="deletePlayer()">Lock off player</button>
+
 
 <!--? or condition like the one on the disabled button -->

@@ -25,13 +25,17 @@ export class ContactPageComponent implements OnInit {
         //* this gets us the id from the current route we're navigating, 
         //console.log(this.route.snapshot.paramMap.get('id'), this.isProfile)
 
-        //! obviously the url should only stay in the service, there's no need to copy it everywhere
-        this.players = this.firebaseService.getPlayer('https://s2i-angular-tutorial-default-rtdb.asia-southeast1.firebasedatabase.app/players.json')
+        
+        this.players = this.firebaseService.getPlayers()
             .subscribe((data: any) => {
-                console.log("Pre", data)
+                //console.log("Pre", data)
+                //console.log("Prec", Object.keys(data))
                 //* we need to remap the object we receive in an array of objects, in order to display it properly
-                this.players = Object.keys(data).map(key => { return data[key]})
-                console.log("Post", this.players)
+                this.players = Object.keys(data).map(key => { 
+                    data[key]['id'] = key //* we're creating a new id property where its value will be the object kei
+                    return data[key]
+                })
+                //console.log("Post", this.players)
             })
     }
 }

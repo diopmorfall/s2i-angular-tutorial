@@ -1,2 +1,6 @@
-<h2>{{ player.name }}'s profile</h2>
-<p>Color: {{ player.color }}</p>
+<div *ngIf="player">
+    <h2>{{ player.name }}'s profile</h2>
+    <p>Email: {{ player.email }}</p>
+    <p>Description: {{ player.description }}</p>
+</div>
+

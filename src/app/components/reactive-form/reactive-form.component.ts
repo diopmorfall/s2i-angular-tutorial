@@ -37,13 +37,27 @@ export class ReactiveFormComponent implements OnInit {
             //* and I can add validators too (if multiple, add them in an array)
             email: new FormControl(null, [Validators.required, Validators.email]),
             color: new FormControl(),
+            description: new FormControl(null, [Validators.required, Validators.minLength(10)]),
         })
     }
 
     onSubmit(){
         console.log(this.homeForm)
-        this.firebaseService.addPlayer('https://s2i-angular-tutorial-default-rtdb.asia-southeast1.firebasedatabase.app/players.json',
-            { name: this.homeForm.value.name, email: this.homeForm.value.email }
+        this.firebaseService.addPlayer(
+            {
+                name: this.homeForm.value.name,
+                email: this.homeForm.value.email,
+                description: this.homeForm.value.description
+            }
         ).subscribe(data => console.log("DB", data))
     }
+
+    deletePlayer(){
+        this.firebaseService.deletePlayer('-OC4HaI3LVVNf657mg0A')
+        .subscribe(data => {
+            console.log(data)
+        })
+    }
+
+
 }
