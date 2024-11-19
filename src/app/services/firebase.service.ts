@@ -12,4 +12,8 @@ export class FirebaseService { //* this service will be used for interacting wit
     addPlayer(url: string, body: {}){
         return this.http.post(url, body)
     }
+
+    getPlayer(url: string){
+        return this.http.get(url)
+    }
 }
