@@ -1,6 +1,25 @@
-<div *ngIf="player">
-    <h2>{{ player.name }}'s profile</h2>
-    <p>Email: {{ player.email }}</p>
-    <p>Description: {{ player.description }}</p>
+<div>
+    <div *ngIf="player">
+        <h2>{{ player.name }}'s profile</h2>
+        <p>Email: {{ player.email }}</p>
+        <p>Description: {{ player.description }}</p>
+    </div>
+    <form  [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" name="name" formControlName="name">
+        </mat-form-field>
+        <p *ngIf="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">Insert name</p>
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" name="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Description</mat-label>
+            <input matInput type="text" name="description" formControlName="description">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.touched || !contactForm.valid">Edit</button>
+    </form>
+    <button mat-raised-button (click)="deletePlayer()">Lock off player</button>
 </div>
 <!--todo: use the dialog for changing the values, and the buttons to delete/patch -->

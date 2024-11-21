@@ -30,7 +30,7 @@ export class FirebaseService { //* this service will be used for interacting wit
     patchPlayer(id: string, body: {}){
         return this.http.patch(`${this.url}/${id}.json`, body)
     }
-    //* we use patch because we're changino only a part of the entity in the database
+    //* we use patch because we're changing only a part of the entity in the database
     //* if we want to change it all, we should use the put method
     //! do not use put to change only a part of the entity, because it'll replace everything with it
 }
