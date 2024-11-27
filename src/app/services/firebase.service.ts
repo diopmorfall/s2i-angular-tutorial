@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable({
     providedIn: 'root'
@@ -8,14 +9,15 @@ export class FirebaseService { //* this service will be used for interacting wit
     //? if the app gets too big, you can break it down as much as you want
     url: string = 'https://s2i-angular-tutorial-default-rtdb.asia-southeast1.firebasedatabase.app/players'
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private authService: AuthService) { }
 
     addPlayer(body: {}){
         return this.http.post(`${this.url}.json`, body)
     }
 
     getPlayers(){
-        return this.http.get(`${this.url}.json`)
+        return this.http.get(`${this.url}.json?auth=${this.authService.user.token}`)
+        //* with the token, only the authenticated users can access that content
     }
 
     getPlayer(id: string){

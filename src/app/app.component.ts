@@ -7,12 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { Observable } from 'rxjs';
 
 import { ProvaComponent } from './prova/prova.component';
-import { AboutPageComponent } from './components/about-page/about-page.component';
-import { ContactPageComponent } from './components/contact-page/contact-page.component';
 
 import { HighlightDirective } from './directives/highlight.directive';
 import { ServizioProvaService } from './services/servizio-prova.service';
-import { HomePageComponent } from "./components/home-page/home-page.component";
+import { AuthService } from './auth/auth.service';
 //* in v17 you need to import the components you need
 //* unlike the older versions where you add them in app.module.ts
 //? FormsModule is needed to use ngModel with input elements and two way binding
@@ -25,10 +23,7 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
         RouterOutlet,
         RouterLink,
         FormsModule,
-        ProvaComponent,
-        AboutPageComponent,
-        ContactPageComponent,
-        HomePageComponent,  
+        ProvaComponent, 
         MatButtonModule,
         MatInputModule,
         CommonModule,
@@ -38,7 +33,7 @@ import { HomePageComponent } from "./components/home-page/home-page.component";
     styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, AfterViewInit{
-    constructor(private servizioProvaService: ServizioProvaService){ }
+    constructor(private servizioProvaService: ServizioProvaService, private authService: AuthService){ }
     //* this is where we inject the services
     isDisabled = false;
 
@@ -58,6 +53,11 @@ export class AppComponent implements OnInit, AfterViewInit{
                 count++;
             }, 1000) //* this is the line that asslow us to stay updated on the latest values
         })
+
+        if(localStorage.getItem('user')){
+            const user = JSON.parse(localStorage.getItem('user')!)
+            this.authService.createUser(user.email, user.id, user._token, user._expirationDate)
+        }
     }
     title = 'Angular tutorial by start2impact University';
     url1 = 'https://tse1.mm.bing.net/th?id=OIP.t5B55ZEKRYJ9nzL77VDgIwHaKT&pid=Api'
@@ -121,5 +121,7 @@ export class AppComponent implements OnInit, AfterViewInit{
     today = Date.now()
     number = 7.5
 
-
+    onLogout(){
+        this.authService.logout()
+    }
 }

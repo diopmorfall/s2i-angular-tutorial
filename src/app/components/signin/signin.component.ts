@@ -6,7 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
-    selector: 'app-signup',
+    selector: 'app-signin',
     standalone: true,
     imports: [
         ReactiveFormsModule,
@@ -15,23 +15,28 @@ import { AuthService } from '../../auth/auth.service';
         MatInputModule,
         MatButtonModule,
     ],
-    templateUrl: './signup.component.html',
-    styleUrl: './signup.component.css'
+    templateUrl: './signin.component.html',
+    styleUrl: './signin.component.css'
 })
-export class SignupComponent {
+export class SigninComponent {
 
     constructor(private authService: AuthService){ }
-
-    signupForm!: FormGroup;
 
     onSubmit(form: NgForm){
         const email = form.value.email
         const password = form.value.password
-        console.log("Signup", email, password)
-        this.authService.signup(
+        console.log("Signin", email, password)
+        this.authService.signin(
             email,
             password,
-        ).subscribe(data => { console.log(data) })
+        ).subscribe((data: any) => { //* and here we save it into the localStorage
+            console.log("Login", data)
+            const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000)
+            //? properly setting the expiration date
+            this.authService.createUser(data.email, data.localId, data.idToken, expirationDate)
+            console.log("User here", this.authService.user)
+            localStorage.setItem("user", JSON.stringify(this.authService.user))
+        })
         
         form.reset()
     }

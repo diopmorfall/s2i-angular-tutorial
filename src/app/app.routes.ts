@@ -8,12 +8,14 @@ import { canActivateChild, canActivateGuard } from './auth/auth.guard';
 import { TemplateDrivenFormComponent } from './components/template-driven-form/template-driven-form.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { SigninComponent } from './components/signin/signin.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' }, //? same type of redirect, but to a different path
     //* also with pathmatch we make sure that only the empty path will be redirected to the home page
     { path: 'home', component: HomePageComponent },
     { path: 'signup', component: SignupComponent },
+    { path: 'signin', component: SigninComponent },
     { path: 'about', component: AboutPageComponent },
     //* this is a route with params, we can use it to load a component for a specific set of data
     { path: 'contacts', canActivate: [canActivateGuard], canActivateChild: [canActivateChild],

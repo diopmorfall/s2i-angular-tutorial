@@ -1,0 +1,13 @@
+<h2>Login</h2>
+
+<form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)">
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" ngModel required email>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" ngModel required>
+    </mat-form-field>
+    <button mat-raised-button type="submit" [disabled]="!signupForm.valid">Submit</button>
+</form>
